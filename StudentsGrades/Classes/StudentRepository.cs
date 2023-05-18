@@ -9,7 +9,12 @@ namespace StudentsGrades.Classes
 {
     public class StudentRepository : IStudentRepository
     {
-        private List<Student> students = new List<Student>();
+        private List<Student> students;
+        public StudentRepository(List<Student> students)
+        {
+            this.students = students;
+        }
+
 
         public void AddStudent(Student student)
         {

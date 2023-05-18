@@ -14,9 +14,11 @@ namespace StudentsGrades
         static void Main(string[] args)
         {
             // Create instances of the required dependencies
-            IStudentRepository studentRepository = new StudentRepository();
+            List<Student> students = new List<Student>();
+            IStudentRepository studentRepository = new StudentRepository(students);
             IGradeCalculator gradeCalculator = new GradeCalculator();
             IGradeExporter gradeExporter = new GradeExporter();
+
 
             // Create an instance of the GradeManagement
             var gradeManagementSystem = new GradeManagement(studentRepository, gradeCalculator, gradeExporter);

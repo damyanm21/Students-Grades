@@ -1,6 +1,7 @@
 ﻿using StudentsGrades.Interfaces;
 using StudentsGrades;
 using System;
+using StudentsGrades.Classes;
 
 public class GradeManagement
 {
@@ -39,7 +40,7 @@ public class GradeManagement
         }
         catch (Exception ex)
         {
-            Console.WriteLine($"An error occurred while adding a new student: {ex.Message}");
+            Console.WriteLine(Const.AddStudentError);
         }
     }
 

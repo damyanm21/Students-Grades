@@ -25,7 +25,7 @@ namespace StudentsGrades.Classes
             }
             catch (IOException ex)
             {
-                Console.WriteLine($"An error occurred while exporting grades: {ex.Message}");
+                Console.WriteLine(Const.ExportGradesError);
             }
         }
 

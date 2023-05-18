@@ -10,12 +10,16 @@ namespace StudentsGrades.Classes
 {
     public class StudentRepositoryTests
     {
-        private StudentRepository studentRepository;
+        private List<Student> students;
+        private StudentRepository repository;
+
 
         [SetUp]
         public void SetUp()
         {
-            studentRepository = new StudentRepository();
+            students = new List<Student>();
+            repository = new StudentRepository(students);
+
         }
 
         [Test]
@@ -25,11 +29,10 @@ namespace StudentsGrades.Classes
             var student = new Student { Id = 1, Name = "John Doe" };
 
             // Act
-            studentRepository.AddStudent(student);
+            repository.AddStudent(student);
 
             // Assert
-            var addedStudent = studentRepository.GetStudent(1);
-            Assert.AreEqual(student, addedStudent);
+            Assert.Contains(student, students);
         }
 
         [Test]
@@ -37,14 +40,13 @@ namespace StudentsGrades.Classes
         {
             // Arrange
             var student = new Student { Id = 1, Name = "John Doe" };
-            studentRepository.AddStudent(student);
+            repository.AddStudent(student);
 
             // Act
-            studentRepository.AddGrade(1, 6);
+            repository.AddGrade(student.Id, 6);
 
             // Assert
-            var addedGrade = student.Grades.FirstOrDefault();
-            Assert.AreEqual(6, addedGrade);
+            Assert.AreEqual(6, student.Grades.Single());
         }
 
         [Test]
@@ -52,24 +54,40 @@ namespace StudentsGrades.Classes
         {
             // Arrange
             var student = new Student { Id = 1, Name = "John Doe" };
-            studentRepository.AddStudent(student);
+            repository.AddStudent(student);
 
             // Act
-            var retrievedStudent = studentRepository.GetStudent(1);
+            var result = repository.GetStudent(student.Id);
 
             // Assert
-            Assert.AreEqual(student, retrievedStudent);
+            Assert.AreEqual(student, result);
         }
 
         [Test]
         public void GetStudent_NonExistingStudentId_ReturnsNull()
         {
             // Act
-            var retrievedStudent = studentRepository.GetStudent(1);
+            var result = repository.GetStudent(999);
 
             // Assert
-            Assert.IsNull(retrievedStudent);
+            Assert.IsNull(result);
         }
 
+        [Test]
+        public void GetStudents_ReturnsAllStudents()
+        {
+            // Arrange
+            var student1 = new Student { Id = 1, Name = "John Doe" };
+            var student2 = new Student { Id = 2, Name = "Jane Smith" };
+            repository.AddStudent(student1);
+            repository.AddStudent(student2);
+
+            // Act
+            var result = repository.GetStudents().ToList();
+
+            // Assert
+            Assert.Contains(student1, result);
+            Assert.Contains(student2, result);
+        }
     }
 }
