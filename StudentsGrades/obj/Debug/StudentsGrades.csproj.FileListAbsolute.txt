@@ -20,3 +20,5 @@ F:\Coding\StudentsGrades\StudentsGrades\obj\Debug\StudentsGrades.csproj.CoreComp
 F:\Coding\StudentsGrades\StudentsGrades\obj\Debug\StudentsGrades.csproj.CopyComplete
 F:\Coding\StudentsGrades\StudentsGrades\obj\Debug\StudentsGrades.exe
 F:\Coding\StudentsGrades\StudentsGrades\obj\Debug\StudentsGrades.pdb
+F:\Coding\StudentsGrades\bin\Debug\NLog.dll
+F:\Coding\StudentsGrades\bin\Debug\NLog.xml

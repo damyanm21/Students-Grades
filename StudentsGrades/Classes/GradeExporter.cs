@@ -1,4 +1,5 @@
-﻿using StudentsGrades.Interfaces;
+﻿using NLog;
+using StudentsGrades.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -10,6 +11,7 @@ namespace StudentsGrades.Classes
 {
     public class GradeExporter : IGradeExporter
     {
+        private readonly static Logger logger = LogManager.GetCurrentClassLogger();
         public void ExportGrades(IEnumerable<Student> students, string filePath)
         {
             try
@@ -25,6 +27,7 @@ namespace StudentsGrades.Classes
             }
             catch (IOException ex)
             {
+                logger.Error(ex);
                 Console.WriteLine(Const.ExportGradesError);
             }
         }

@@ -2,9 +2,11 @@
 using StudentsGrades;
 using System;
 using StudentsGrades.Classes;
+using NLog;
 
 public class GradeManagement
 {
+    private readonly static Logger logger = LogManager.GetCurrentClassLogger();
     private readonly IStudentRepository studentRepository;
     private readonly IGradeCalculator gradeCalculator;
     private readonly IGradeExporter gradeExporter;
@@ -40,6 +42,8 @@ public class GradeManagement
         }
         catch (Exception ex)
         {
+            logger.Error(ex);
+
             Console.WriteLine(Const.AddStudentError);
         }
     }
@@ -57,7 +61,9 @@ public class GradeManagement
         }
         catch (Exception ex)
         {
-            Console.WriteLine($"An error occurred while adding a grade: {ex.Message}");
+            logger.Error(ex);
+
+            Console.WriteLine(Const.AddGradesError);
         }
     }
 
@@ -83,7 +89,9 @@ public class GradeManagement
         }
         catch (Exception ex)
         {
-            Console.WriteLine($"An error occurred while calculating the average grade: {ex.Message}");
+            logger.Error(ex);
+
+            Console.WriteLine(Const.CalcAverageGradeError);
             return 0;
         }
     }
@@ -102,7 +110,9 @@ public class GradeManagement
         }
         catch (Exception ex)
         {
-            Console.WriteLine($"An error occurred while exporting grades: {ex.Message}");
+            logger.Error(ex);
+
+            Console.WriteLine(Const.ExportGradesError);
         }
     }
 }
