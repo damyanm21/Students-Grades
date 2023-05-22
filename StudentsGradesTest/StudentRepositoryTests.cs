@@ -6,7 +6,7 @@ using System.IO;
 using System.Linq;
 using StudentsGrades.Interfaces;
 
-namespace StudentsGrades.Classes
+namespace StudentRepositoryTests
 {
     public class StudentRepositoryTests
     {
