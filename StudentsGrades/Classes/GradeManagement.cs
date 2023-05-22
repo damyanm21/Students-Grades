@@ -4,7 +4,7 @@ using System;
 using StudentsGrades.Classes;
 using NLog;
 
-public class GradeManagement
+public class GradeManagement : IGradeManagement
 {
     private readonly static Logger logger = LogManager.GetCurrentClassLogger();
     private readonly IStudentRepository studentRepository;
@@ -27,11 +27,6 @@ public class GradeManagement
         this.gradeExporter = gradeExporter;
     }
 
-    /// <summary>
-    /// Adds a new student with the specified name and ID.
-    /// </summary>
-    /// <param name="name">The name of the student.</param>
-    /// <param name="id">The ID of the student.</param>
     public void AddNewStudent(string name, int id)
     {
         var student = new Student { Name = name, Id = id };
@@ -48,11 +43,6 @@ public class GradeManagement
         }
     }
 
-    /// <summary>
-    /// Adds a grade to the student with the specified ID.
-    /// </summary>
-    /// <param name="studentId">The ID of the student.</param>
-    /// <param name="grade">The grade to be added.</param>
     public void AddGrade(int studentId, int grade)
     {
         try
@@ -67,11 +57,6 @@ public class GradeManagement
         }
     }
 
-    /// <summary>
-    /// Calculates the average grade for the student with the specified ID.
-    /// </summary>
-    /// <param name="studentId">The ID of the student.</param>
-    /// <returns>The average grade of the student.</returns>
     public decimal CalculateAverageGrade(int studentId)
     {
         var student = studentRepository.GetStudent(studentId);
@@ -96,10 +81,6 @@ public class GradeManagement
         }
     }
 
-    /// <summary>
-    /// Exports the grades of all students to the specified file path.
-    /// </summary>
-    /// <param name="filePath">The file path to export the grades to.</param>
     public void ExportGrades(string filePath)
     {
         var students = studentRepository.GetStudents();

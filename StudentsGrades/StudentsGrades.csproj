@@ -61,6 +61,8 @@
     <Compile Include="Classes\StudentRepository.cs" />
     <Compile Include="Interfaces\IGradeCalculator.cs" />
     <Compile Include="Interfaces\IGradeExporter.cs" />
+    <Compile Include="Interfaces\IGradeManagement.cs" />
+    <Compile Include="Interfaces\IStudent.cs" />
     <Compile Include="Interfaces\IStudentRepository.cs" />
     <Compile Include="Classes\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

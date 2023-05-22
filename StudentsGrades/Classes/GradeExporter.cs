@@ -29,6 +29,7 @@ namespace StudentsGrades.Classes
             {
                 logger.Error(ex);
                 Console.WriteLine(Const.ExportGradesError);
+                throw; // Rethrow the exception
             }
         }
 

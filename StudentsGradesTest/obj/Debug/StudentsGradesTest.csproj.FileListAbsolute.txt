@@ -24,3 +24,13 @@ F:\Coding\StudentsGradesTest\obj\Debug\StudentsGradesTest.csproj.CoreCompileInpu
 F:\Coding\StudentsGradesTest\obj\Debug\StudentsGradesTest.csproj.CopyComplete
 F:\Coding\StudentsGradesTest\obj\Debug\StudentsGradesTest.dll
 F:\Coding\StudentsGradesTest\obj\Debug\StudentsGradesTest.pdb
+F:\Coding\StudentsGradesTest\bin\Debug\Castle.Core.dll
+F:\Coding\StudentsGradesTest\bin\Debug\Moq.dll
+F:\Coding\StudentsGradesTest\bin\Debug\NLog.dll
+F:\Coding\StudentsGradesTest\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+F:\Coding\StudentsGradesTest\bin\Debug\System.Threading.Tasks.Extensions.dll
+F:\Coding\StudentsGradesTest\bin\Debug\Castle.Core.xml
+F:\Coding\StudentsGradesTest\bin\Debug\Moq.xml
+F:\Coding\StudentsGradesTest\bin\Debug\NLog.xml
+F:\Coding\StudentsGradesTest\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+F:\Coding\StudentsGradesTest\bin\Debug\System.Threading.Tasks.Extensions.xml
